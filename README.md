@@ -1,2 +1,2 @@
 # Mini-Microservice_App
-My personal project demonstrating my ability to build microservices
+Smal scale product before launching the full fledged cloud microservice app

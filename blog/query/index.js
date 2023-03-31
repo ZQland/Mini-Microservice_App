@@ -28,7 +28,7 @@ const handleEvent = (type, data) => {
         const { id, content, postId, status } = data;
 
         const post = posts[postId];
-        const comment = post.comments.find(comment => {
+        const comment = post.comments.find((comment) => {
             return comment.id === id;
         });
 
@@ -52,14 +52,13 @@ app.listen(4002, async () => {
     console.log('Listening on 4002');
 
     try {
-        const res = await axios.get('http://localhost:4005/events');
-
+        const res = await axios.get("http://event-bus-srv:4005/events");
         for (let event of res.data) {
             console.log('processing event:', event.type);
 
             handleEvent(event.type, event.data);
         }
     } catch(error) {
-        console.log(error.message);
+        console.log("ERROR", error.message);
     }
 });
